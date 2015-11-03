@@ -217,8 +217,8 @@ glyph_cache_atlas(void) {
 extern TEXTURE
 glyph_cache_texture(void) {
     TEXTURE tex = atlas_get_texture(glyphs_atlas);
-    atlas_free(glyphs_atlas);
-    glyphs_atlas = NULL;
+    //atlas_free(glyphs_atlas);
+    //glyphs_atlas = NULL;
 
     return tex;
 }

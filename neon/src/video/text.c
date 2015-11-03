@@ -117,8 +117,8 @@ get_text_size(const char *text, size_t text_size, int font_type) {
 
 extern void
 submit_text(VIDEO_SPRITE_BATCH *batch, const char *text, const float2 position, const float4 color, int font_type) {
-    float tw = batch->texture.width;
-    float th = batch->texture.height;
+    float tw = batch->texture->width;
+    float th = batch->texture->height;
 
     const char *s = text;
 

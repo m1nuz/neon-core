@@ -83,7 +83,6 @@ void log_set_level(unsigned int level);
     return ret;}\
     } while(0)
 
-#define checkif_do(test, todo, message, ...) do { if (test) { \
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, message, __VA_ARGS__);\
-    todo; }\
+#define checkif_do(test, ...) do { if (test) { \
+    __VA_ARGS__; }\
     } while(0)

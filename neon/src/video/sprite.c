@@ -125,7 +125,7 @@ submit_batches(VIDEO_SPRITE_BATCH *batches, size_t batches_count, SHADER *shader
 
         glUniform1i(loc_sprite, 0);
 
-        bind_texture(0, &batches[i].texture);
+        bind_texture(0, batches[i].texture);
         bind_sampler(0, sampler);
 
         bind_vertex_arrays(&batches[i].va);

@@ -9,12 +9,12 @@
 #include "video/texture.h"
 
 typedef struct VideoSpriteBatchInfo {
-    TEXTURE     texture;
+    TEXTURE     *texture;
     size_t      max_sprites;
 } VIDEO_SPRITE_BATCH_INFO;
 
 typedef struct VideoSpriteBatch {
-    TEXTURE     texture;
+    TEXTURE     *texture;
 
     v3t2c4_t    *vertices;
     uint16_t    *indices;

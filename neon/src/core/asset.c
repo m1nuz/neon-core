@@ -123,9 +123,10 @@ package_open(const char *filepath) {
         return -1;
     }*/
     checkif_do(header.magic != PACKAGE_MAGIC, {
+                   LOG_WARNING("Unknown pakage type %u\n", header.magic);
                    SDL_RWclose(rw);
                    return -1;
-               }, "Unknown pakage type %u\n", header.magic);
+               });
 
     if (header.version < PACKAGE_VERSION) {
         LOG_ERROR("Unsupported pakage version %x\n", header.version);
