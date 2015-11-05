@@ -42,4 +42,4 @@ int glyph_cache_get_font_size(int type);
 int glyph_cache_get_font_lineskip(int type);
 int glyph_cache_get_char_width(uint16_t ch, int type);
 ATLAS_SURFACE *glyph_cache_atlas(void);
-TEXTURE glyph_cache_texture(void);
+IMAGE_DATA glyph_cache_image(void);

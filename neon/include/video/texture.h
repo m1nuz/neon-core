@@ -40,15 +40,4 @@ TEXTURE upload_cubemap_textures(const char *name);
 
 void bind_texture(uint32_t unit, TEXTURE *tex);
 void unbind_texture(uint32_t unit, uint32_t target);
-
-typedef struct RGB_Color {
-    unsigned char r;
-    unsigned char g;
-    unsigned char b;
-} RGB_COLOR;
-
-typedef uint8_t COLOR;
-
-TEXTURE texgen_radial_gradient(int width, int height, COLOR c0, COLOR c1, int radius);
-TEXTURE texgen_color(int width, int height, RGB_COLOR color);
-TEXTURE texgen_check(int width, int height, unsigned char mask, RGB_COLOR color);
+void generate_mipmap_texture(TEXTURE *tex);

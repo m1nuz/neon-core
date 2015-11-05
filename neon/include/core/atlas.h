@@ -8,6 +8,6 @@ ATLAS_SURFACE *atlas_alloc(int width, int height, int padding);
 void atlas_free(ATLAS_SURFACE *atlas);
 SDL_Rect atlas_add(ATLAS_SURFACE *atlas, SDL_Surface *surface);
 
-#include "video/texture.h"
+#include "core/image.h"
 
-TEXTURE atlas_get_texture(ATLAS_SURFACE *atlas);
+IMAGE_DATA atlas_get_image(ATLAS_SURFACE *atlas);

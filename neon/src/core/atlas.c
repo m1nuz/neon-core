@@ -174,19 +174,21 @@ atlas_add(ATLAS_SURFACE *atlas, SDL_Surface *surface) {
     return rect;
 }
 
-TEXTURE
-atlas_get_texture(ATLAS_SURFACE *atlas) {
+#include <video/gl.h>
+
+IMAGE_DATA
+atlas_get_image(ATLAS_SURFACE *atlas) {
     assert(atlas != NULL);
 
     size_t sz = atlas->surface->format->BytesPerPixel * atlas->surface->w * atlas->surface->h;
 
-    return new_texture2D(&(IMAGE_DATA){.internalformat = video.i_rgba8,
-                                       .width = atlas->surface->w,
-                                       .height = atlas->surface->h,
-                                       .format = video.f_rgba,
-                                       .type = GL_UNSIGNED_BYTE,
-                                       .pixels = atlas->surface->pixels,
-                                       .size = sz,
-                                       .mipmaps = 1,
-                                       .bpp = atlas->surface->format->BytesPerPixel});
+    // TODO: auto free flag for image
+    return (IMAGE_DATA){.internalformat = video.i_rgba8,
+                .width = atlas->surface->w,
+                .height = atlas->surface->h,
+                .format = video.f_rgba,
+                .type = GL_UNSIGNED_BYTE,
+                .pixels = atlas->surface->pixels,
+                .size = sz,
+                .bpp = atlas->surface->format->BytesPerPixel};
 }

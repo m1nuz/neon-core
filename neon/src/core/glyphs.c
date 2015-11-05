@@ -214,11 +214,7 @@ glyph_cache_atlas(void) {
     return glyphs_atlas;
 }
 
-extern TEXTURE
-glyph_cache_texture(void) {
-    TEXTURE tex = atlas_get_texture(glyphs_atlas);
-    //atlas_free(glyphs_atlas);
-    //glyphs_atlas = NULL;
-
-    return tex;
+extern IMAGE_DATA
+glyph_cache_image(void) {
+    return atlas_get_image(glyphs_atlas);
 }
