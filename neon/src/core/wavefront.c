@@ -168,7 +168,7 @@ static v3_t *
 build_v3(const struct Wavefront *wavefront) {
     assert(wavefront != NULL);
 
-    int count = (wavefront->num_faces - 1);
+    int count = (wavefront->num_faces);
     v3_t *vertices = malloc(sizeof(v3_t) * count * 3);
 
     memset(vertices, 0, sizeof(v3_t) * count * 3);
@@ -187,7 +187,7 @@ static v3n3_t *
 build_v3n3(const struct Wavefront *wavefront) {
     assert(wavefront != NULL);
 
-    int count = (wavefront->num_faces - 1);
+    int count = (wavefront->num_faces);
     v3n3_t *vertices = malloc(sizeof(v3n3_t) * count * 3);
 
     memset(vertices, 0, sizeof(v3n3_t) * count * 3);
@@ -209,7 +209,7 @@ static v3t2_t *
 build_v3t2(const struct Wavefront *wavefront) {
     assert(wavefront != NULL);
 
-    int count = (wavefront->num_faces - 1);
+    int count = (wavefront->num_faces);
     v3t2_t *vertices = malloc(sizeof(v3t2_t) * count * 3);
 
     memset(vertices, 0, sizeof(v3t2_t) * count * 3);
@@ -231,7 +231,7 @@ static v3t2n3_t *
 build_v3t2n3(const struct Wavefront *wavefront) {
     assert(wavefront != NULL);
 
-    int count = (wavefront->num_faces - 1);
+    int count = (wavefront->num_faces);
     v3t2n3_t *vertices = malloc(sizeof(v3t2n3_t) * count * 3);
 
     memset(vertices, 0, sizeof(v3t2n3_t) * count * 3);
@@ -257,7 +257,7 @@ static unsigned short *
 build_indices(struct Wavefront *wavefront) {
     assert(wavefront != NULL);
 
-    int count = (wavefront->num_faces - 1);
+    int count = (wavefront->num_faces);
     unsigned short *indices = malloc(sizeof(unsigned short) * count * 3);
 
     for (int i = 0; i < count * 3; i++) {
@@ -417,8 +417,6 @@ load_wavefront(SDL_RWops *rw, void **_vertices, int *_vertices_num, void **_indi
             break;
         }
     }
-
-    faces_count--; // we count +1
 
     switch (wavefront.vf) {
     case VF_V3:
